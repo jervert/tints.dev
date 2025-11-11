@@ -3,7 +3,7 @@ description:
 globs: 
 alwaysApply: true
 ---
-- Use PNPM, never NPM
+- Use NPM, never PNPM
 
 ## AFTER DOING WORK
 - Work in a new branch per feature request

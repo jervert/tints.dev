@@ -1,6 +1,5 @@
 import "~/styles/app.css";
 
-import { Analytics } from "@vercel/analytics/react";
 import type { LinksFunction } from "react-router";
 import {
   isRouteErrorResponse,
@@ -33,9 +32,7 @@ export const links: LinksFunction = () => {
 
 export const loader = async () => {
   return {
-    ENV: {
-      VERCEL_ANALYTICS_ID: process.env.VERCEL_ANALYTICS_ID,
-    },
+    ENV: {},
   };
 };
 
@@ -75,9 +72,7 @@ export default function App() {
           }}
         />
         <Scripts />
-        {process.env.NODE_ENV !== "development" ? (
-          <Analytics debug={false} />
-        ) : null}
+        {process.env.NODE_ENV !== "development" ? null : null}
       </body>
     </html>
   );

@@ -11,7 +11,7 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "format": "prettier --write .",
-    "lint": "pnpm dlx oxlint@latest",
+    "lint": "npx oxlint@latest",
     "test": "vitest run",
     "test:run": "vitest run",
     "prepare": "husky"
@@ -24,7 +24,6 @@
     "@react-router/node": "^7.6.2",
     "@react-router/serve": "^7.6.2",
     "@resvg/resvg-js": "^2.6.2",
-    "@vercel/analytics": "^1.5.0",
     "@vercel/react-router": "latest",
     "chroma-js": "^3.1.2",
     "clsx": "^2.1.1",
@@ -64,6 +63,5 @@
   "engines": {
     "node": ">=22"
   },
-  "sideEffects": false,
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+  "sideEffects": false
 }
