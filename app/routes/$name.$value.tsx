@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router";
 
 import Generator from "~/components/Generator";
 import { META } from "~/lib/constants";
-import { getGitHubData } from "~/lib/getGitHubData";
 import { getSanityData } from "~/lib/getSanityData";
 import { isHex, isValidName } from "~/lib/helpers";
 import {
@@ -51,17 +50,16 @@ export const loader = async ({ params, request }: Route.LoaderArgs) => {
     return createRedirectResponse(request, palette);
   }
 
-  const [about, github] = await Promise.all([getSanityData(), getGitHubData()]);
+  const [about] = await Promise.all([getSanityData()]);
 
   return {
     palettes: palette ? [palette] : [],
-    about,
-    stars: github?.stargazers_count ? Number(github.stargazers_count) : 0,
+    about
   };
 };
 
 export default function Index() {
-  const { palettes, about, stars } = useLoaderData<typeof loader>();
+  const { palettes, about } = useLoaderData<typeof loader>();
 
   if (!palettes?.length) {
     return null;
@@ -77,7 +75,7 @@ export default function Index() {
       <meta name="og:image:height" content={String(height)} />
       <meta name="og:image" content={url} />
       {palettes?.length ? (
-        <Generator palettes={palettes} about={about} stars={stars} />
+        <Generator palettes={palettes} about={about} />
       ) : null}
     </>
   );

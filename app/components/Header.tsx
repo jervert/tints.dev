@@ -1,13 +1,9 @@
 import { CodeBracketIcon, LinkIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
 import { Link, useLocation } from "react-router";
 import { useCopyToClipboard } from "usehooks-ts";
-
 import { Button } from "~/components/catalyst/button";
-import GitHub from "./GitHub";
-import Twitter from "./Twitter";
 
-export default function Header({ stars }: { stars: number }) {
+export default function Header() {
   const [, copy] = useCopyToClipboard();
 
   const handleCopyURL = () => {
@@ -37,20 +33,6 @@ export default function Header({ stars }: { stars: number }) {
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          {stars ? (
-            <span className="flex items-center gap-1 font-bold text-yellow-600 text-sm">
-              <StarIcon className="size-4" />
-              {stars} <span className="sr-only">Stars on GitHub</span>
-            </span>
-          ) : null}
-          <Button outline href="https://github.com/SimeonGriggs/tints.dev">
-            <GitHub className="size-4" />
-            <span className="sr-only">Star on GitHub</span>
-          </Button>
-          <Button outline href="https://x.com/simeonGriggs">
-            <Twitter className="size-4" />
-            <span className="sr-only">Follow me on Twitter</span>
-          </Button>
           <Button outline onClick={handleCopyURL}>
             <LinkIcon className="size-4" />
             <span className="sr-only">Copy URL</span>

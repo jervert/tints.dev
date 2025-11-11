@@ -21,10 +21,9 @@ import { createDisplayColor } from "~/lib/createDisplayColor";
 type GeneratorProps = {
   palettes: PaletteConfig[];
   about: Block[];
-  stars: number;
 };
 
-export default function Generator({ palettes, about, stars }: GeneratorProps) {
+export default function Generator({ palettes, about }: GeneratorProps) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -113,7 +112,7 @@ export default function Generator({ palettes, about, stars }: GeneratorProps) {
     <main className="pb-32 pt-header">
       <style>{styleString}</style>
 
-      <Header stars={stars} />
+      <Header />
 
       {showDemo ? <Demo palettes={palettesState} close={handleDemo} /> : null}
 

@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router";
 
 import Generator from "~/components/Generator";
-import { getGitHubData } from "~/lib/getGitHubData";
 import { getSanityData } from "~/lib/getSanityData";
 import { deserializePalettes } from "~/lib/paletteHash";
 
@@ -24,21 +23,20 @@ export const loader = async ({ params }: Route.LoaderArgs) => {
     });
   }
 
-  const [about, github] = await Promise.all([getSanityData(), getGitHubData()]);
+  const [about] = await Promise.all([getSanityData()]);
 
   return {
     palettes,
-    about,
-    stars: github?.stargazers_count ? Number(github.stargazers_count) : 0,
+    about
   };
 };
 
 export default function PaletteHash() {
-  const { palettes, about, stars } = useLoaderData<typeof loader>();
+  const { palettes, about } = useLoaderData<typeof loader>();
 
   if (!palettes?.length) {
     return null;
   }
 
-  return <Generator palettes={palettes} about={about} stars={stars} />;
+  return <Generator palettes={palettes} about={about} />;
 }

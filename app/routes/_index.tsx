@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router";
 
 import Generator from "~/components/Generator";
-import { getGitHubData } from "~/lib/getGitHubData";
 import { getSanityData } from "~/lib/getSanityData";
 import {
   createCanonicalUrl,
@@ -13,17 +12,16 @@ import type { Route } from "./+types/_index";
 
 export const loader = async ({ request }: Route.LoaderArgs) => {
   const palettes = requestToPalettes(request.url);
-  const [about, github] = await Promise.all([getSanityData(), getGitHubData()]);
+  const [about] = await Promise.all([getSanityData()]);
 
   return {
     palettes,
-    about,
-    stars: github?.stargazers_count ? Number(github.stargazers_count) : 0,
+    about
   };
 };
 
 export default function Index() {
-  const { palettes, about, stars } = useLoaderData<typeof loader>();
+  const { palettes, about } = useLoaderData<typeof loader>();
 
   if (!palettes?.length) {
     return null;
@@ -38,7 +36,7 @@ export default function Index() {
       <meta name="og:image:width" content={String(width)} />
       <meta name="og:image:height" content={String(height)} />
       <meta name="og:image" content={url} />
-      <Generator palettes={palettes} about={about} stars={stars} />
+      <Generator palettes={palettes} about={about} />
     </>
   );
 }
