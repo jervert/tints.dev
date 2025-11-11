@@ -60,8 +60,8 @@ export const RANDOM_PALETTES = [
 ];
 
 export const META = {
-  origin: `https://tints.dev`,
-  title: `Tailwind CSS 11-color Palette Generator and API`,
+  origin: `https://color.digitalpapyrus.eu`,
+  title: `Palette Generator`,
   description: `A fast and flexible, HSL-tweakable palette generator and API for Tailwind CSS`,
 };
 
