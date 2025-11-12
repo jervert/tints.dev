@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router";
 
 import Generator from "~/components/Generator";
-import { getSanityData } from "~/lib/getSanityData";
 import { deserializePalettes } from "~/lib/paletteHash";
 
 import type { Route } from "./+types/palette.$hash";
@@ -23,20 +22,17 @@ export const loader = async ({ params }: Route.LoaderArgs) => {
     });
   }
 
-  const [about] = await Promise.all([getSanityData()]);
-
   return {
     palettes,
-    about
   };
 };
 
 export default function PaletteHash() {
-  const { palettes, about } = useLoaderData<typeof loader>();
+  const { palettes } = useLoaderData<typeof loader>();
 
   if (!palettes?.length) {
     return null;
   }
 
-  return <Generator palettes={palettes} about={about} />;
+  return <Generator palettes={palettes} />;
 }

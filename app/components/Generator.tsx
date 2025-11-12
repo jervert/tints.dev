@@ -8,7 +8,6 @@ import Demo from "~/components/Demo";
 import Graphs from "~/components/Graphs";
 import Output from "~/components/Output";
 import Palette from "~/components/Palette";
-import type { Block } from "~/components/Prose";
 import { Prose } from "~/components/Prose";
 import { MODES, VERSIONS } from "~/lib/constants";
 import { createRandomPalette } from "~/lib/createRandomPalette";
@@ -20,10 +19,9 @@ import { createDisplayColor } from "~/lib/createDisplayColor";
 
 type GeneratorProps = {
   palettes: PaletteConfig[];
-  about: Block[];
 };
 
-export default function Generator({ palettes, about }: GeneratorProps) {
+export default function Generator({ palettes }: GeneratorProps) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -150,7 +148,7 @@ export default function Generator({ palettes, about }: GeneratorProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           <div className="row-start-2 md:row-start-1 md:col-span-3">
-            {about.length ? <Prose blocks={about} /> : null}
+            <Prose />
           </div>
           <div className="row-start-1 md:col-span-2 flex flex-col gap-4">
             <Output

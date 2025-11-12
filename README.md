@@ -24,11 +24,10 @@ Currently, the API will only return a Palette using the base hex value, with no 
 
 ## Credits
 
-Made by [Simeon Griggs](https://simeongriggs.dev/)
+Made by [Simeon Griggs](https://simeongriggs.dev/), modified by arr2019
 
 * Designed with [Tailwind CSS](https://tailwindcss.com/) (obvs) 
   * with a sprinkling of [Headless UI](https://headlessui.dev/)
   * and a dash of [HeroIcons](https://heroicons.com/)
 * Built with [React Router](https://reactrouter.com)
-* Hosted on [Vercel](https://vercel.com)
-* Content in [Sanity.io](https://www.sanity.io/)
+

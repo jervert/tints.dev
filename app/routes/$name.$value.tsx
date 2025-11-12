@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router";
 
 import Generator from "~/components/Generator";
 import { META } from "~/lib/constants";
-import { getSanityData } from "~/lib/getSanityData";
 import { isHex, isValidName } from "~/lib/helpers";
 import {
   createCanonicalUrl,
@@ -50,16 +49,13 @@ export const loader = async ({ params, request }: Route.LoaderArgs) => {
     return createRedirectResponse(request, palette);
   }
 
-  const [about] = await Promise.all([getSanityData()]);
-
   return {
     palettes: palette ? [palette] : [],
-    about
   };
 };
 
 export default function Index() {
-  const { palettes, about } = useLoaderData<typeof loader>();
+  const { palettes } = useLoaderData<typeof loader>();
 
   if (!palettes?.length) {
     return null;
@@ -74,9 +70,7 @@ export default function Index() {
       <meta name="og:image:width" content={String(width)} />
       <meta name="og:image:height" content={String(height)} />
       <meta name="og:image" content={url} />
-      {palettes?.length ? (
-        <Generator palettes={palettes} about={about} />
-      ) : null}
+      {palettes?.length ? <Generator palettes={palettes} /> : null}
     </>
   );
 }
