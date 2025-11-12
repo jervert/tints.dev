@@ -43,7 +43,9 @@ export default function App() {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="https://fav.farm/🎨" />
+        <link rel="icon" href="favicon.png" />
+        <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1,viewport-fit=cover"
