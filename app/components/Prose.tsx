@@ -50,7 +50,8 @@ export function Prose() {
       </p>
       <h2>Credits</h2>
       <p>
-        Made by <a href="https://simeongriggs.dev/">Simeon Griggs</a>
+        Made by <a href="https://simeongriggs.dev/">Simeon Griggs</a>, modified
+        by arr2019
       </p>
       <ul>
         <li>
@@ -68,9 +69,6 @@ export function Prose() {
         </li>
         <li>
           Built with <a href="https://reactrouter.com">React Router</a>
-        </li>
-        <li>
-          Hosted on <a href="https://vercel.com">Vercel</a>
         </li>
       </ul>
     </div>
